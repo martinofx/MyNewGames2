@@ -719,7 +719,7 @@ MonoBehaviour:
   - {fileID: 686629164}
   - {fileID: 970453165}
   - {fileID: 1546432050}
-  initialWaveSize: 100
+  initialWaveSize: 1
   waveDelay: 5
   spawnDelay: 1
 --- !u!4 &740802920
@@ -1629,13 +1629,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794495243466471044, guid: 6a33203025c481b469cd17511d0b6dcf,
         type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4794495243466471044, guid: 6a33203025c481b469cd17511d0b6dcf,
+        type: 3}
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1384380871}
     - target: {fileID: 4794495243466471044, guid: 6a33203025c481b469cd17511d0b6dcf,
         type: 3}
       propertyPath: boostSpeed
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7393324192048202748, guid: 6a33203025c481b469cd17511d0b6dcf,
         type: 3}
@@ -1663,8 +1668,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1002144659632669387, guid: 1b431485fe09e764da745ad725d76eb6,
         type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002144659632669387, guid: 1b431485fe09e764da745ad725d76eb6,
+        type: 3}
       propertyPath: damage
-      value: 33
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1543615128333710459, guid: 1b431485fe09e764da745ad725d76eb6,
         type: 3}
