@@ -136,6 +136,21 @@ public class Controller_Player : MonoBehaviour
         {
             lastKeyUp = false;
         }
+
+         if (inputY > 0)
+        {
+            transform.rotation = Quaternion.Euler(15f, 0, 0);
+            lastKeyUp = true;
+        }
+        else if (inputY < 0)
+        {
+            transform.rotation = Quaternion.Euler(-15f, 0, 0);
+            lastKeyUp = false;
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
      void OnTriggerEnter(Collider collision)

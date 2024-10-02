@@ -1632,12 +1632,23 @@ PrefabInstance:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1384380871}
+    - target: {fileID: 4794495243466471044, guid: 6a33203025c481b469cd17511d0b6dcf,
+        type: 3}
+      propertyPath: boostSpeed
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7393324192048202748, guid: 6a33203025c481b469cd17511d0b6dcf,
         type: 3}
       propertyPath: m_Name
       value: jugador
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7393324192048202748, guid: 6a33203025c481b469cd17511d0b6dcf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3641905690237127267, guid: 6a33203025c481b469cd17511d0b6dcf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
