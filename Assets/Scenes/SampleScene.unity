@@ -719,7 +719,7 @@ MonoBehaviour:
   - {fileID: 686629164}
   - {fileID: 970453165}
   - {fileID: 1546432050}
-  initialWaveSize: 1
+  initialWaveSize: 100
   waveDelay: 5
   spawnDelay: 1
 --- !u!4 &740802920
@@ -1023,7 +1023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 563, y: -240}
+  m_AnchoredPosition: {x: 541.79, y: -240}
   m_SizeDelta: {x: 200, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384380871
