@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Controller_Player : MonoBehaviour
 {
     public float speed = 10;
     public float boostSpeed = 2;
     public bool boostOn = false;
+    public TextMeshProUGUI speedText;
 
     private Rigidbody rb;
 
@@ -70,12 +72,15 @@ public class Controller_Player : MonoBehaviour
         laserOn = false;
         forceField = false;
         //options = new List<Controller_Option>();
+
+        UpdateSpeedUI();
     }
 
     private void Update()
     {
         CheckForceField();
         ActionInput();
+        UpdateSpeedUI();
         
     }    
 
@@ -147,8 +152,11 @@ public class Controller_Player : MonoBehaviour
         speed = boostSpeed * speed;
         boostOn = true;
     }
-
     
+     void UpdateSpeedUI()
+    {
+        speedText.text = "Speed: " + speed.ToString();
+    } 
 
     
 

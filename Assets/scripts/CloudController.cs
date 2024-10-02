@@ -9,7 +9,7 @@ public class CloudController : MonoBehaviour
     public float maxSpeed = 3f;  // Velocidad máxima de las nubes
     public float minDepth = -5f; // Profundidad mínima para el efecto parallax
     public float maxDepth = 5f;  // Profundidad máxima para el efecto parallax
-    public Vector2 spawnRangeX = new Vector2(-10f, 10f); // Rango de posiciones X para la aparición
+    public Vector2 spawnRangeX = new Vector2(10f, 15f); // Rango de posiciones X para la aparición (empieza desde la derecha)
     public Vector2 spawnRangeY = new Vector2(-3f, 3f);   // Rango de posiciones Y para la aparición
 
     private List<GameObject> activeClouds = new List<GameObject>();
@@ -29,18 +29,16 @@ public class CloudController : MonoBehaviour
     {
         foreach (GameObject cloudPrefab in clouds)
         {
-            // Posición aleatoria dentro de los rangos de spawn
-            float randomX = Random.Range(spawnRangeX.x, spawnRangeX.y);
-            float randomY = Random.Range(spawnRangeY.x, spawnRangeY.y);
-            float randomDepth = Random.Range(minDepth, maxDepth);  // Profundidad aleatoria
+            float randomX = Random.Range(spawnRangeX.x, spawnRangeX.y);  // Posición aleatoria dentro del rango de spawn en X
+            float randomY = Random.Range(spawnRangeY.x, spawnRangeY.y);  // Posición aleatoria en Y
+            float randomDepth = Random.Range(minDepth, maxDepth);        // Profundidad aleatoria
 
             Vector3 spawnPosition = new Vector3(randomX, randomY, randomDepth);
 
             GameObject newCloud = Instantiate(cloudPrefab, spawnPosition, Quaternion.identity);
-            newCloud.transform.localScale *= Random.Range(0.8f, 1.2f);  // Escalado aleatorio para dar variedad
+            newCloud.transform.localScale *= Random.Range(0.8f, 1.2f);  // Escala aleatoria
             float randomSpeed = Random.Range(minSpeed, maxSpeed);
 
-            // Asignar la velocidad aleatoria a cada nube
             newCloud.AddComponent<CloudMovement>().SetSpeed(randomSpeed);
             activeClouds.Add(newCloud);
         }
@@ -48,22 +46,18 @@ public class CloudController : MonoBehaviour
 
     void MoveClouds()
     {
-        foreach (GameObject cloud in activeClouds)
-        {
-            // Las nubes ya tienen su velocidad asignada, por lo que se mueven automáticamente
-        }
+        // Aquí las nubes ya están moviéndose automáticamente debido al componente CloudMovement
     }
 
     void RecycleClouds()
     {
         for (int i = activeClouds.Count - 1; i >= 0; i--)
         {
-            if (activeClouds[i].transform.position.y < spawnRangeX.x)  // Si la nube sale del lado derecho de la pantalla
+            if (activeClouds[i].transform.position.x < -spawnRangeX.x)  // Si la nube sale del lado izquierdo
             {
-                // Reposicionar la nube en el lado izquierdo
-                float randomX = Random.Range(spawnRangeX.x, spawnRangeX.y);
-                float randomDepth = Random.Range(minDepth, maxDepth);  // Profundidad aleatoria
-                activeClouds[i].transform.position = new Vector3(spawnRangeX.x, randomX, randomDepth);
+                float randomY = Random.Range(spawnRangeY.x, spawnRangeY.y);  // Posición Y aleatoria
+                float randomDepth = Random.Range(minDepth, maxDepth);        // Profundidad aleatoria
+                activeClouds[i].transform.position = new Vector3(spawnRangeX.y, randomY, randomDepth);  // Reposicionar a la derecha
             }
         }
     }
